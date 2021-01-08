@@ -1,30 +1,30 @@
-def rot13(text, shift):
-    new_text = ""
+def rot13(ciphertext, shift):
+    text = ""
 
-    for letter in text:
-        if letter.isalpha():
-            if letter.isupper():
-                new_letter = chr((ord(letter) - ord("A") - shift) % 26
+    for char in text:
+        if char.isalpha():
+            if char.isupper():
+                new_char = chr((ord(char) - ord("A") - shift) % 26
                     + ord("A"))
-            elif letter.islower():
-                new_letter = chr((ord(letter) - ord("a") - shift) % 26
+            elif char.islower():
+                new_char = chr((ord(char) - ord("a") - shift) % 26
                     + ord("a"))
         else:
-            new_letter = letter
+            new_char = char
 
-        new_text += new_letter
+        text += new_char
 
-    return new_text
+    return text
 
-def rot47(text, shift):
-    new_text = ""
+def rot47(ciphertext, shift):
+    text = ""
 
-    for letter in text:
-        if letter.isascii() and not(letter.isspace()):
-            new_letter = chr((ord(letter) - ord("!") - shift) % 94 + ord("!"))
+    for char in text:
+        if char.isascii() and not(char.isspace()):
+            new_char = chr((ord(char) - ord("!") - shift) % 94 + ord("!"))
         else:
-            new_letter = letter
+            new_char = char
 
-        new_text += new_letter
+        text += new_char
 
-    return new_text
+    return text
