@@ -28,3 +28,21 @@ def rot47(text, shift):
         ciphertext += new_char
 
     return ciphertext
+
+def xor_string(text, key):
+    ciphertext = ""
+
+    key = (key * (len(text) // len(key) + 1))[:len(text)]
+
+    for text_char, key_char in zip(text, key):
+        ciphertext += chr(ord(text_char) ^ ord(key_char))
+
+    return ciphertext
+
+def xor_numeric(text, key):
+    ciphertext = ""
+
+    for char in text:
+        ciphertext += chr(ord(char) ^ key)
+
+    return ciphertext
